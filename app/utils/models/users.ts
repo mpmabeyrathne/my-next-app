@@ -5,9 +5,7 @@ export const users = [
     "email": "john.doe@example.com",
     "password": "hashed_password_123",
     "firstName": "John",
-    "lastName": "Doe",
-    "role": "admin",
-    "active": true
+    "lastName": "Doe"
   },
   {
     "id": "2",
@@ -15,9 +13,7 @@ export const users = [
     "email": "jane.smith@example.com",
     "password": "hashed_password_456",
     "firstName": "Jane",
-    "lastName": "Smith",
-    "role": "user",
-    "active": true
+    "lastName": "Smith"
   },
   {
     "id": "3",
@@ -25,9 +21,7 @@ export const users = [
     "email": "bob.jones@example.com",
     "password": "hashed_password_789",
     "firstName": "Bob",
-    "lastName": "Jones",
-    "role": "user",
-    "active": false
+    "lastName": "Jones"
   },
   {
     "id": "4",
@@ -35,9 +29,7 @@ export const users = [
     "email": "alice.walker@example.com",
     "password": "hashed_password_012",
     "firstName": "Alice",
-    "lastName": "Walker",
-    "role": "moderator",
-    "active": true
+    "lastName": "Walker"
   },
   {
     "id": "5",
@@ -45,8 +37,22 @@ export const users = [
     "email": "john.doe@examplenew.com",
     "password": "hashed_password_123",
     "firstName": "John",
-    "lastName": "Doe",
-    "role": "admin",
-    "active": true
+    "lastName": "Doe"
+  },
+  {
+    "id": "6",
+    "username": "john_doe new 2",
+    "email": "john.doe@examplenew2.com",
+    "password": "hashed_password_123 ",
+    "firstName": "John",
+    "lastName": "Doe"
+  },
+  {
+    "id": "7",
+    "username": "pasindu",
+    "email": "pasindumaduwantha2019@gmail.com",
+    "password": "12345678",
+    "firstName": "pasindu",
+    "lastName": "abeyrathne"
   }
 ];

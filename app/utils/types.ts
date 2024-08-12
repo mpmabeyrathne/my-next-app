@@ -1,4 +1,3 @@
-
 export interface Product {
   id: string;
   name: string;
@@ -27,6 +26,4 @@ export interface User {
   password: string;
   firstName: string;
   lastName: string;
-  role: 'admin' | 'user' | 'moderator';
-  active: boolean;
 }

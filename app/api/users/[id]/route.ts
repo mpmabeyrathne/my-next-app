@@ -25,7 +25,7 @@ export async function PUT(
   { params }: { params: RequestParams },
 ): Promise<NextResponse> {
   const { id } = params;
-  const { username, email, firstName, lastName, role, active }: Partial<User> =
+  const { username, email, firstName, lastName }: Partial<User> =
     await req.json();
 
   const index = users.findIndex((user) => user.id === id);
@@ -41,8 +41,6 @@ export async function PUT(
     email: email ?? users[index].email,
     firstName: firstName ?? users[index].firstName,
     lastName: lastName ?? users[index].lastName,
-    role: role ?? users[index].role,
-    active: active ?? users[index].active,
   };
 
   const updatedUsersJSON = JSON.stringify(users, null, 2);

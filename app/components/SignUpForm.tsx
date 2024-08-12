@@ -1,11 +1,30 @@
 'use client';
 import React from 'react';
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, message } from 'antd';
 import 'antd/dist/reset.css';
 
 const SignUpForm: React.FC = () => {
-  const onFinish = (values: any) => {
-    console.log('Received values:', values);
+  const onFinish = async (values: any) => {
+    try {
+      const response = await fetch('http://localhost:3000/api/users/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        message.error(errorData.error || 'Sign in failed');
+      } else {
+        const data = await response.json();
+        message.success('Sign in successful');
+        console.log('Received values:', data);
+      }
+    } catch (error) {
+      message.error('An error occurred while signing in');
+    }
   };
 
   return (
@@ -19,6 +38,33 @@ const SignUpForm: React.FC = () => {
           onFinish={onFinish}
           layout="vertical"
           initialValues={{ remember: true }}>
+          <Form.Item
+            name="username"
+            label="Username"
+            rules={[
+              { required: true, message: 'Please input your username!' },
+            ]}>
+            <Input className="border-gray-300 rounded-md" />
+          </Form.Item>
+
+          <Form.Item
+            name="firstName"
+            label="First Name"
+            rules={[
+              { required: true, message: 'Please input your first name!' },
+            ]}>
+            <Input className="border-gray-300 rounded-md" />
+          </Form.Item>
+
+          <Form.Item
+            name="lastName"
+            label="Last Name"
+            rules={[
+              { required: true, message: 'Please input your last name!' },
+            ]}>
+            <Input className="border-gray-300 rounded-md" />
+          </Form.Item>
+
           <Form.Item
             name="email"
             label="Email"

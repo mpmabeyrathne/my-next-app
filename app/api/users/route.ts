@@ -14,23 +14,10 @@ export function GET(): NextResponse {
 
 // Create user
 export async function POST(req: Request): Promise<NextResponse> {
-  const {
-    username,
-    email,
-    password,
-    firstName,
-    lastName,
-    role,
-    active,
-  }: Partial<User> = await req.json();
+  const { username, email, password, firstName, lastName }: Partial<User> =
+    await req.json();
 
-  if (
-    !username ||
-    !email ||
-    !password ||
-    !role ||
-    typeof active !== 'boolean'
-  ) {
+  if (!username || !email || !password) {
     return NextResponse.json(
       { Result: 'Missing some fields' },
       { status: 400 },
@@ -47,8 +34,6 @@ export async function POST(req: Request): Promise<NextResponse> {
     password,
     firstName: firstName || '',
     lastName: lastName || '',
-    role,
-    active,
   };
 
   users.push(newUser);
